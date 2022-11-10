@@ -1,0 +1,24 @@
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'C:/Users/dhoot/eclipse-workspace/calculator/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/dhoot/eclipse-workspace/calculator/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ZKAC269 0.0.1-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/dhoot/eclipse-workspace/calculator/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ZKAC269 0.0.1-SNAPSHOT API'
