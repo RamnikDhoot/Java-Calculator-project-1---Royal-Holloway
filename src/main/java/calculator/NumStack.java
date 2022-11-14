@@ -6,5 +6,15 @@ package calculator;
  * @author ZKAC269
  */
 public class NumStack {
+  
+  Stack newStack;
+  
+  public NumStack() {
+    newStack = new Stack();
+  }
+
+  public Integer size() {
+    return 0;
+  }
 
 }
