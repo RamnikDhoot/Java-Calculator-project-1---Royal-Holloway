@@ -22,4 +22,8 @@ public class NumStack {
     
   }
 
+  public int top() {
+    return 0;
+  }
+
 }

@@ -26,5 +26,11 @@ class NumStackTest {
     assertEquals(numStack.size(), 1,
         "Test that push increases the size of the empty stack by one.");
   }
+  
+  @Test
+  void testTop() {
+    numStack.push(test);
+    assertEquals(0, numStack.top() , "Tests that the top is the newest added item");
+  }
 
 }
