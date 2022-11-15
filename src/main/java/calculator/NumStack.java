@@ -14,7 +14,12 @@ public class NumStack {
   }
 
   public Integer size() {
-    return 0;
+    return newStack.size();
+  }
+
+  public void push(Entry test) {
+    newStack.push(test);
+    
   }
 
 }
