@@ -29,8 +29,14 @@ class NumStackTest {
   
   @Test
   void testTop() {
+    Entry one = new Entry("hello");
+    numStack.push(one);
+    Entry two = new Entry(2.8f);
+    numStack.push(two);
+    test = new Entry("test");
     numStack.push(test);
-    assertEquals(0, numStack.top() , "Tests that the top is the newest added item");
+    assertEquals("Entry [number=null, other=null, str=test, type=string]",
+        numStack.top().toString(), "Tests that the top is the newest added item");
   }
 
 }

@@ -22,8 +22,8 @@ public class NumStack {
     
   }
 
-  public int top() {
-    return 0;
+  public Entry top() {
+    return newStack.top();
   }
 
 }
