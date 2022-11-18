@@ -26,7 +26,7 @@ class NumStackTest {
     assertEquals(numStack.size(), 1,
         "Test that push increases the size of the empty stack by one.");
   }
-  
+
   @Test
   void testTop() {
     Entry one = new Entry("hello");
@@ -38,8 +38,9 @@ class NumStackTest {
     assertEquals("Entry [number=null, other=null, str=test, type=string]",
         numStack.top().toString(), "Tests that the top is the newest added item");
   }
-  
+
   @Test
+  // pop cannot throw any exception as it is caught in the method.
   void testPop() {
     Entry one = new Entry("hello");
     Entry two = new Entry(Symbol.PLUS);
