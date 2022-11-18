@@ -38,5 +38,17 @@ class NumStackTest {
     assertEquals("Entry [number=null, other=null, str=test, type=string]",
         numStack.top().toString(), "Tests that the top is the newest added item");
   }
+  
+  @Test
+  void testPop() {
+    Entry one = new Entry("hello");
+    Entry two = new Entry(Symbol.PLUS);
+    numStack.push(one);
+    numStack.push(two);;
+    assertEquals(2, numStack.size(), "After pushing twice the size should be 2");
+    numStack.pop();
+    numStack.pop();
+    assertEquals(0, numStack.size(), "The stack should now be empty");
+  }
 
 }

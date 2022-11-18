@@ -38,8 +38,8 @@ class StackTest {
     Entry one = new Entry("hello");
     Entry two = new Entry(Symbol.PLUS);
     testStack.push(one);
-    testStack.push(two);;
-    assertEquals(2, testStack.size, "After pushing twice the size should be 2");
+    testStack.push(two);
+    assertEquals(2, testStack.size(), "After pushing twice the size should be 2");
     testStack.pop();
     testStack.pop();
     assertEquals(0, testStack.size(), "The stack should now be empty");
