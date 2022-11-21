@@ -45,10 +45,10 @@ public class NumStack {
   public Entry top() {
     return newStack.top();
   }
-  
+
   /**
-   * Removes the newest entry added from the stack.
-   * Catches any EmptyStackException thrown by the stack class.
+   * Removes the newest entry added from the stack. Catches any EmptyStackException thrown by the
+   * stack class.
    * 
    * @return the entry that was removed.
    */
@@ -57,9 +57,19 @@ public class NumStack {
     try {
       popped = newStack.pop();
     } catch (EmptyStackException e) {
+      ;
     }
     return popped;
 
+  }
+
+  /**
+   * Checks if the stack is empty.
+   * 
+   * @return if the stack is empty.
+   */
+  public Boolean isEmpty() {
+    return newStack.size() == 0;
   }
 
 }

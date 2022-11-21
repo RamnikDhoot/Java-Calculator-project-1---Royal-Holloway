@@ -52,4 +52,10 @@ class NumStackTest {
     assertEquals(0, numStack.size(), "The stack should now be empty");
   }
 
+
+  @Test
+  void testIsEmpty() {
+    assertEquals(numStack.isEmpty(), true, "Tests that the stack is empty");
+  }
+
 }
