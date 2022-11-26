@@ -30,7 +30,14 @@ class OpStackTest {
   
   @Test
   void testTop() {
-    assertEquals(opStack.top(),1, "Tests that the top is the newest added item");
+    Entry one = new Entry("hello");
+    opStack.push(one);
+    Entry two = new Entry(2.8f);
+    opStack.push(two);
+    test = new Entry("test");
+    opStack.push(test);
+    assertEquals("Entry [number=null, other=null, str=test, type=string]",
+        opStack.top().toString(), "Tests that the top is the newest added item");
   }
 
 }

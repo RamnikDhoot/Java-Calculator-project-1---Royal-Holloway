@@ -40,8 +40,8 @@ public class OpStack {
    * 
    * @return the item at the top of the stack.
    */
-  public int top() {
-    return 1;
+  public Entry top() {
+    return newStack.top();
   }
 
 }
