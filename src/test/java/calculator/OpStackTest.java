@@ -39,5 +39,18 @@ class OpStackTest {
     assertEquals("Entry [number=null, other=null, str=test, type=string]",
         opStack.top().toString(), "Tests that the top is the newest added item");
   }
+  
+  @Test
+  // pop cannot throw any exception as it is caught in the method.
+  void testPop() {
+    Entry one = new Entry("hello");
+    Entry two = new Entry(Symbol.PLUS);
+    opStack.push(one);
+    opStack.push(two);;
+    assertEquals(2, opStack.size(), "After pushing twice the size should be 2");
+    opStack.pop();
+    opStack.pop();
+    assertEquals(0, opStack.size(), "The stack should now be empty");
+  }
 
 }

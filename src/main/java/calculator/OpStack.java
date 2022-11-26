@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.EmptyStackException;
+
 /**
  * This is a stack of operations to be a facade for the underlying stack class.
  * 
@@ -42,6 +44,23 @@ public class OpStack {
    */
   public Entry top() {
     return newStack.top();
+  }
+  
+  /**
+   * Removes the newest entry added from the stack. Catches any EmptyStackException thrown by the
+   * stack class.
+   * 
+   * @return the entry that was removed.
+   */
+  public Entry pop() {
+    Entry popped = null;
+    try {
+      popped = newStack.pop();
+    } catch (EmptyStackException e) {
+      ;
+    }
+    return popped;
+
   }
 
 }
