@@ -52,5 +52,10 @@ class OpStackTest {
     opStack.pop();
     assertEquals(0, opStack.size(), "The stack should now be empty");
   }
+  
+  @Test
+  void testIsEmpty() {
+    assertEquals(opStack.isEmpty(), true, "Tests that the stack is empty");
+  }
 
 }

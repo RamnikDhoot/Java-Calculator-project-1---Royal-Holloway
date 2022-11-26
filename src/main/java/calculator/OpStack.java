@@ -62,5 +62,14 @@ public class OpStack {
     return popped;
 
   }
+  
+  /**
+   * Checks if the stack is empty.
+   * 
+   * @return if the stack is empty.
+   */
+  public Boolean isEmpty() {
+    return newStack.size() == 0;
+  }
 
 }
