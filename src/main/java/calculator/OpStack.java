@@ -34,5 +34,14 @@ public class OpStack {
     newStack.push(test);
 
   }
+  
+  /**
+   * The newest item that was added to the stack.
+   * 
+   * @return the item at the top of the stack.
+   */
+  public int top() {
+    return 1;
+  }
 
 }
