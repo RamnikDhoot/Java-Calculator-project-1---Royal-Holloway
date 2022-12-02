@@ -33,5 +33,14 @@ public class StrStack {
     newStack.push(test);
 
   }
+  
+  /**
+   * The newest item that was added to the stack.
+   * 
+   * @return the item at the top of the stack.
+   */
+  public Entry top() {
+    return newStack.top();
+  }
 
 }
