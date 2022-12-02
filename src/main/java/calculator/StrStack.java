@@ -16,7 +16,7 @@ public class StrStack {
   public StrStack() {
     newStack = new Stack();
   }
-  
+
   /**
    * Returns the size of the object by calling size on the stack object.
    * 
@@ -25,7 +25,7 @@ public class StrStack {
   public Integer size() {
     return newStack.size();
   }
-  
+
   /**
    * Adds the string to the top of the stack.
    * 
@@ -35,7 +35,7 @@ public class StrStack {
     newStack.push(test);
 
   }
-  
+
   /**
    * The newest item that was added to the stack.
    * 
@@ -44,7 +44,7 @@ public class StrStack {
   public Entry top() {
     return newStack.top();
   }
-  
+
   /**
    * Removes the newest entry added from the stack. Catches any EmptyStackException thrown by the
    * stack class.
@@ -61,5 +61,15 @@ public class StrStack {
     return popped;
 
   }
+
+  /**
+   * Checks if the stack is empty.
+   * 
+   * @return if the stack is empty.
+   */
+  public Boolean isEmpty() {
+    return newStack.size() == 0;
+  }
+
 
 }
