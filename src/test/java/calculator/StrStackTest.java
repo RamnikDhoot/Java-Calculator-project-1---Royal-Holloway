@@ -31,11 +31,24 @@ class StrStackTest {
     Entry one = new Entry("hello");
     strStack.push(one);
     Entry two = new Entry(2.8f);
-   strStack.push(two);
+    strStack.push(two);
     test = new Entry("test");
-   strStack.push(test);
+    strStack.push(test);
     assertEquals("Entry [number=null, other=null, str=test, type=string]",
-       strStack.top().toString(), "Tests that the top is the newest added item");
+        strStack.top().toString(), "Tests that the top is the newest added item");
+  }
+  
+  @Test
+  // pop cannot throw any exception as it is caught in the method.
+  void testPop() {
+    Entry one = new Entry("hello");
+    Entry two = new Entry(Symbol.PLUS);
+    strStack.push(one);
+    strStack.push(two);;
+    assertEquals(2, strStack.size(), "After pushing twice the size should be 2");
+    strStack.pop();
+    strStack.pop();
+    assertEquals(0, strStack.size(), "The stack should now be empty");
   }
 
 }
