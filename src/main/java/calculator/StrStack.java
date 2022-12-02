@@ -20,8 +20,18 @@ public class StrStack {
    * 
    * @return size of the stack
    */
-  public int size() {
+  public Integer size() {
     return newStack.size();
+  }
+  
+  /**
+   * Adds the string to the top of the stack.
+   * 
+   * @param test the number to be put onto the stack
+   */
+  public void push(Entry test) {
+    newStack.push(test);
+
   }
 
 }
