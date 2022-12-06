@@ -1,0 +1,8 @@
+These are the first release notes so they only contain the results of testing.
+1. Usability testing: 
+The GUI is simple to use and can be resized. There are no tool tips to help users and the GUI colours may be hard to see for some.
+
+2.Documentation testing: There is a readme file.
+
+3. Configuration testing: 
+This does work in a different os. It was tested in NoMachine. There is no configuration in readme.md
