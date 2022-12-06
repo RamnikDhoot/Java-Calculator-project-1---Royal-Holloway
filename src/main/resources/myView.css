@@ -1,3 +1,27 @@
-.button {
-    -fx-background-color: red;
+.root {
+    -fx-font-size: 20px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #5b5b5b;
+    -fx-text-fill: rgb(255, 255, 255);
 }
+
+
+.button {
+    -fx-background-color: rgb(255, 0, 0);
+}
+
+
+.button:hover {
+    -fx-background-color: rgba(255, 0, 0, 0.679);
+}
+
+.label {
+    -fx-font-size: 22px;
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+.radiobutton {
+
+}
+
+
