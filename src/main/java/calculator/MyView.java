@@ -7,6 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
+/**
+ * This class contains the data for the GUI.
+ * 
+ * @author zkac269
+ *
+ */
 public class MyView {
 
   @FXML
@@ -32,21 +38,27 @@ public class MyView {
 
 
   /**
-   * @param f
+   * This adds an observer for the calculation.
+   * 
+   * @param f the calculation.
    */
   public void addCalcObserver(Runnable f) {
 
   }
 
   /**
-   * @param l
+   * This adds an observer for the type of calculation being done (Infix/Reverse polish).
+   * 
+   * @param l the type of the calculation
    */
   public void addTypeObserver(Consumer<OpType> l) {
 
   }
 
   /**
-   * @return
+   * Get the expression from user input.
+   * 
+   * @return the expression
    */
   public String getExpression() {
     return null;
@@ -54,7 +66,9 @@ public class MyView {
   }
 
   /**
-   * @param answer
+   * Used to set the answer to a given expression.
+   * 
+   * @param answer the answer to an expression
    */
   public void setAnswer(String answer) {
 
