@@ -14,8 +14,10 @@ class revPolishTest {
   }
   
   @Test
-  void testReader() {
-    assertEquals(calc.evaluate("1"), 1, "Test to see if the reader returns the correct int");
+  void testList() throws BadTypeException {
+    assertEquals(calc.evaluate("1 3 4 + +"), 8);
   }
+  
+  
 
 }
