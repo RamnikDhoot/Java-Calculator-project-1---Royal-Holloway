@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.function.Consumer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,6 +30,35 @@ public class MyView {
   @FXML
   private Button calculate;
 
+
+  /**
+   * @param f
+   */
+  public void addCalcObserver(Runnable f) {
+
+  }
+
+  /**
+   * @param l
+   */
+  public void addTypeObserver(Consumer<OpType> l) {
+
+  }
+
+  /**
+   * @return
+   */
+  public String getExpression() {
+    return null;
+
+  }
+
+  /**
+   * @param answer
+   */
+  public void setAnswer(String answer) {
+
+  }
 }
 
 
