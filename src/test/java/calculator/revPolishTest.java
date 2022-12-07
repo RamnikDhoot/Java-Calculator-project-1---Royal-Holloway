@@ -47,6 +47,11 @@ class revPolishTest {
   void test1() throws BadTypeException {
     assertEquals(5, calc.evaluate("2 1 3 / +"));
   }
+  
+  @Test
+  void test2() throws BadTypeException {
+    assertEquals(12, calc.evaluate("2 1 4 7 7 / + + *"));
+  }
 
 
 
