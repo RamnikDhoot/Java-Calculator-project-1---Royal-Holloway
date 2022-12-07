@@ -37,6 +37,10 @@ public class RevPolish {
             Entry answer = new Entry(args1 + args2);
             list.push(answer);
             break;
+          case "-":
+            Entry answer1 = new Entry(args1 - args2);
+            list.push(answer1);
+            break;
           default:
             continue;
         }
