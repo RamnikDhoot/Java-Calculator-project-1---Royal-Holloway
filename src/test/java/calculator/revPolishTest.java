@@ -27,16 +27,22 @@ class revPolishTest {
   void testMinus() throws BadTypeException {
     assertEquals(0, calc.evaluate("1 1 -"));
   }
-  
+
   @Test
   void testMinusEight() throws BadTypeException {
     assertEquals(-20, calc.evaluate("1 2 3 4 5 6 7 8 - - - - - - -"));
   }
-  
+
   @Test
   void testMultiply() throws BadTypeException {
     assertEquals(24, calc.evaluate("1 2 3 4 * * *"));
   }
+
+  @Test
+  void testDivide() throws BadTypeException {
+    assertEquals((float) 0.5, calc.evaluate("2 1 /"));
+  }
+
 
 
 }
