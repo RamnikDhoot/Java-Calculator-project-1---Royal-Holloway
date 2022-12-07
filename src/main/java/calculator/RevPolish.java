@@ -41,6 +41,10 @@ public class RevPolish {
             Entry answer1 = new Entry(args1 - args2);
             list.push(answer1);
             break;
+          case "*":
+            Entry answer2 = new Entry(args1 * args2);
+            list.push(answer2);
+            break;
           default:
             continue;
         }

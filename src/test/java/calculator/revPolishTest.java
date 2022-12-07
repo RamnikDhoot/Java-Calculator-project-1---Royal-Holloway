@@ -32,6 +32,11 @@ class revPolishTest {
   void testMinusEight() throws BadTypeException {
     assertEquals(-20, calc.evaluate("1 2 3 4 5 6 7 8 - - - - - - -"));
   }
+  
+  @Test
+  void testMultiply() throws BadTypeException {
+    assertEquals(24, calc.evaluate("1 2 3 4 * * *"));
+  }
 
 
 }
