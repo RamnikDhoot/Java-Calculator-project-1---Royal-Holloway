@@ -18,27 +18,35 @@ public class RevPolish {
    * 
    * @param str the expression to be calculated
    * @return the result of the calculation
-   * @throws BadTypeException 
+   * @throws BadTypeException if a part of the string is the wrong type
    */
   public Float evaluate(String str) throws BadTypeException { // should return a float
     list = new NumStack();
     Scanner reader = new Scanner(str);
+
 
     while (reader.hasNext()) {
       if (reader.hasNextInt()) {
         Entry next = new Entry(reader.nextInt());
         list.push(next);
       } else {
-        reader.next();
-        Float arg1 = list.pop().getValue();
-        Float arg2 = list.pop().getValue();
-        Entry answer = new Entry(arg1 + arg2);
-        list.push(answer);
+        Float args1 = list.pop().getValue();
+        Float args2 = list.pop().getValue();
+        switch (reader.next()) {
+          case "+":
+            Entry answer = new Entry(args1 + args2);
+            list.push(answer);
+            break;
+          default:
+            continue;
+        }
       }
+
+
     }
     reader.close();
     return list.pop().getValue();
     // The code for the reader was taken from an example by Dave in the Debug Lecture example.
-
   }
 }
+

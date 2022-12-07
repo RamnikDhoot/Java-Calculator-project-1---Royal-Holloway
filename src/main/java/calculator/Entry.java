@@ -49,7 +49,7 @@ public class Entry {
   /**
    * Constructor for (String) entry and sets the type of the entry.
    * 
-   * @param value (String) value to put into the entry.
+   * @param i value (String) value to put into the entry.
    */
   public Entry(String i) {
     str = i;
@@ -64,7 +64,7 @@ public class Entry {
    * @throws BadTypeException if you use this on something that is not a Float.
    */
   public Float getValue() throws BadTypeException {
-    if (number != null) {// using Float instead of float as float cannot be null
+    if (number != null) { // using Float instead of float as float cannot be null
       return number;
     } else {
       throw new BadTypeException("Wrong type");

@@ -15,7 +15,7 @@ class revPolishTest {
   
   @Test
   void testList() throws BadTypeException {
-    assertEquals(calc.evaluate("1 3 4 + +"), 8);
+    assertEquals(calc.evaluate("1 3  +"), 4);
   }
   
   
