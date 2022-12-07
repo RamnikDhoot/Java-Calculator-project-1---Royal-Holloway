@@ -42,15 +42,20 @@ class revPolishTest {
   void testDivide() throws BadTypeException {
     assertEquals((float) 0.5, calc.evaluate("2 1 /"));
   }
-  
+
   @Test
   void test1() throws BadTypeException {
     assertEquals(5, calc.evaluate("2 1 3 / +"));
   }
-  
+
   @Test
   void test2() throws BadTypeException {
     assertEquals(12, calc.evaluate("2 1 4 7 7 / + + *"));
+  }
+
+  @Test
+  void test3() throws BadTypeException {
+    assertEquals(23, calc.evaluate("11 12  +"));
   }
 
 
