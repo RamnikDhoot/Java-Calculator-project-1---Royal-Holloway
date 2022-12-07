@@ -58,6 +58,11 @@ class revPolishTest {
     assertEquals(23, calc.evaluate("11 12  +"));
   }
 
+  @Test
+  void test4() throws BadTypeException {
+    assertEquals((float) 10.083334, calc.evaluate("11 12 1 3 9 4  + - + / *"));
+  }
+
 
 
 }
