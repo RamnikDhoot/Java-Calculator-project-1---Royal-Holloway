@@ -15,7 +15,12 @@ class revPolishTest {
   
   @Test
   void testList() throws BadTypeException {
-    assertEquals(calc.evaluate("1 3  +"), 4);
+    assertEquals(calc.evaluate("1 3 +"), 4);
+  }
+  
+  @Test
+  void testEight() throws BadTypeException {
+    assertEquals(calc.evaluate("1 2 3 4 5 6 7 8 + + + + + + +"), 36);
   }
   
   
