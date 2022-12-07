@@ -18,7 +18,7 @@ public interface ViewInterface {
   void addCalcObserver(Runnable f);
   
   /**
-   * Ads an observer for the type of calculation (Infix/Reverse polish).
+   * Adds an observer for the type of calculation (Infix/Reverse polish).
    * 
    * @param l the type of the calculation
    */

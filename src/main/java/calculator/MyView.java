@@ -25,16 +25,16 @@ public class MyView {
   private TextField FieldR;
 
   @FXML
-  private RadioButton Infix;
+  private RadioButton Infix = null;
 
   @FXML
   private Label Result;
 
   @FXML
-  private RadioButton ReversePolish;
+  private RadioButton ReversePolish = null;
 
   @FXML
-  private Button calculate;
+  private Button calculate = null;
 
 
   /**
@@ -43,7 +43,7 @@ public class MyView {
    * @param f the calculation.
    */
   public void addCalcObserver(Runnable f) {
-
+    calculate.setOnAction(event -> ((Observer) f).notifyObservers());
   }
 
   /**
@@ -52,7 +52,7 @@ public class MyView {
    * @param l the type of the calculation
    */
   public void addTypeObserver(Consumer<OpType> l) {
-
+    ReversePolish.setOnAction(event -> ((Observer) l).notifyObservers());
   }
 
   /**
@@ -61,7 +61,7 @@ public class MyView {
    * @return the expression
    */
   public String getExpression() {
-    return null;
+    return FieldE.getText();
 
   }
 
@@ -71,7 +71,7 @@ public class MyView {
    * @param answer the answer to an expression
    */
   public void setAnswer(String answer) {
-
+    FieldR.setText(answer);
   }
 }
 
