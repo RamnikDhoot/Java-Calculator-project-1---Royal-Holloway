@@ -1,0 +1,9 @@
+These are the second release notes so they only contain the results of testing.
+The calculator is now working with the GUI but only in reverse polish notation.
+1. Usability testing: 
+The GUI is the same as before but is now functioning. There are no tool tips to help users and the GUI colours may be hard to see for some.
+
+2. Documentation testing: There is a README file which explains the functions of the calculator and the release notes explain the changes from the previous version.
+
+3. Configuration testing: 
+This does work in a different OS. It was tested in NoMachine. There is still no configuration section in readme.md
