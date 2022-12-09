@@ -17,5 +17,10 @@ class StandardCalcTest {
   void testList() throws BadTypeException {
     assertEquals(calc.evaluate("test"), 0);
   }
+  
+  @Test
+  void testCalc() throws BadTypeException {
+    assertEquals(calc.calculate("test"), 0);
+  }
 
 }

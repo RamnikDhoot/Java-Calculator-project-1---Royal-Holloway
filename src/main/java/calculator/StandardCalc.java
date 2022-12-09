@@ -9,5 +9,9 @@ public class StandardCalc {
   public Float evaluate(String str) {
     return (float) 0;
   }
+  
+  public Float calculate(String str) {
+    return (float) 0;
+  }
 
 }
