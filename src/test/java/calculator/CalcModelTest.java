@@ -15,7 +15,7 @@ class CalcModelTest {
 
   @Test
   void testEvaluate() {
-    test.evaluate("string");
+    test.evaluate("string", true);
   }
 
 }
