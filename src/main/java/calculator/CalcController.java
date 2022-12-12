@@ -1,7 +1,7 @@
 package calculator;
 
 /**
- *Takes the expression entered and evaluates it then returns the answer.
+ * Takes the expression entered and evaluates it then returns the answer.
  * 
  * @author zkac269
  *
@@ -9,7 +9,7 @@ package calculator;
 public class CalcController {
   private CalcModel myModel;
   private ViewInterface myView;
-  private Boolean isInfix;  
+  private Boolean isInfix;
 
   private void calculate() throws BadTypeException {
     String userInput = myView.getExpression();
