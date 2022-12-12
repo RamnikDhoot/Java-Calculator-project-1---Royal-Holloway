@@ -14,7 +14,7 @@ class CalcModelTest {
   }
 
   @Test
-  void testEvaluate() {
+  void testEvaluate() throws BadTypeException {
     test.evaluate("string", true);
   }
 
