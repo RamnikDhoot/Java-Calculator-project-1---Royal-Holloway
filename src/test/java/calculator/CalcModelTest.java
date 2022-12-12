@@ -15,7 +15,13 @@ class CalcModelTest {
 
   @Test
   void testEvaluate() throws BadTypeException {
-    test.evaluate("string", true);
+    test.evaluate("1", true);
   }
+  
+  @Test
+  void testRevPolish() throws BadTypeException {
+    assertEquals(test.evaluate("1 2 3 + +", false),6);
+  }
+
 
 }
