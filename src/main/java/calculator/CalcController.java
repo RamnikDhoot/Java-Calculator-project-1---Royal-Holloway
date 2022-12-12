@@ -7,17 +7,19 @@ package calculator;
  *
  */
 public class CalcController {
-  private RevPolish myModel;
+  private CalcModel myModel;
   private ViewInterface myView;
+  private Boolean isInfix;  
 
   private void calculate() throws BadTypeException {
     String userInput = myView.getExpression();
-    myView.setAnswer(String.valueOf(myModel.evaluate(userInput)));
+
+    myView.setAnswer(String.valueOf(myModel.evaluate(userInput, isInfix)));
   }
 
   // private void expressionType() {}
 
-  CalcController(RevPolish model, ViewInterface view) {
+  CalcController(CalcModel model, ViewInterface view) {
     myModel = model;
     myView = view;
     view.addCalcObserver(() -> {
