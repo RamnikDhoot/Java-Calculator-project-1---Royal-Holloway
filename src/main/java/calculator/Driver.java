@@ -2,7 +2,6 @@ package calculator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -13,6 +12,7 @@ import javafx.stage.Stage;
  *
  */
 public class Driver extends Application {
+  private CalcController controller = new CalcController();
 
   /**
    * This is the main method to start the calculator and bring up the GUI.
@@ -25,8 +25,9 @@ public class Driver extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MyView.fxml"));
-    Scene scene = new Scene(root, 800, 500);
+    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("myView.fxml"));
+    Scene scene = new Scene(loader.load(), 600, 400);
+    controller.addView(loader.getController());
     primaryStage.setScene(scene);
     primaryStage.show();
   }
