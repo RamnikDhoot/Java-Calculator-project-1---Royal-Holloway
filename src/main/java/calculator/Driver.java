@@ -30,5 +30,5 @@ public class Driver extends Application {
     controller.addView(loader.getController());
     primaryStage.setScene(scene);
     primaryStage.show();
-  }
+  } // This code is from the example code
 }
