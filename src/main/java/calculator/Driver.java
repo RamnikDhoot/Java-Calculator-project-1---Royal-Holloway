@@ -26,7 +26,7 @@ public class Driver extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("myView.fxml"));
-    Scene scene = new Scene(loader.load(), 600, 400);
+    Scene scene = new Scene(loader.load(), 509, 261);
     controller.addView(loader.getController());
     primaryStage.setScene(scene);
     primaryStage.show();

@@ -1,41 +1,75 @@
 package calculator;
 
 import java.util.function.Consumer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 
 /**
- * This class contains the data for the GUI.
+ * This class is the JavaFX view that contains the data for the GUI. It is filled by the fxml loader
+ * at runtime.
  * 
  * @author zkac269
  *
  */
-public class MyView {
+public class MyView implements ViewInterface {
+
+  /**
+   * The expression to be resolved.
+   */
+  @FXML
+  // fx:id="expression"
+  private Label expression;
 
   @FXML
-  private Label Expression;
+  private TextField fieldE;
 
   @FXML
-  private TextField FieldE;
+  private TextField fieldR;
 
+  /**
+   * One of a pair of buttons to change calculation mode.
+   */
   @FXML
-  private TextField FieldR;
+  // fx:id="infix"
+  private RadioButton infix = null;
 
+  /**
+   * The place where the answer is displayed.
+   */
   @FXML
-  private RadioButton Infix = null;
+  // fx:id="result"
+  private Label result;
 
+  /**
+   * One of a pair of buttons to change calculation mode.
+   */
   @FXML
-  private Label Result;
+  // fx:id="reversePolish"
+  private RadioButton reversePolish = null;
 
+  /**
+   * The calculator button on the screen.
+   */
   @FXML
-  private RadioButton ReversePolish = null;
-
-  @FXML
+  // fx:id="calculate"
   private Button calculate = null;
 
+  /**
+   * the object that links the two radio buttons.
+   */
+  @FXML
+  // fx:id="type"
+  private ToggleGroup type;
+  //// All values above were injected by FXMLLoader
 
   /**
    * This adds an observer for the calculation.
@@ -43,7 +77,13 @@ public class MyView {
    * @param f the calculation.
    */
   public void addCalcObserver(Runnable f) {
-    calculate.setOnAction(event -> ((Observer) f).notifyObservers());
+    calculate.setOnAction(new EventHandler<ActionEvent>() {
+
+      @Override
+      public void handle(ActionEvent event) {
+        ((Observer) f).notifyObservers();
+      }
+    });
   }
 
   /**
@@ -52,27 +92,33 @@ public class MyView {
    * @param l the type of the calculation
    */
   public void addTypeObserver(Consumer<OpType> l) {
-    ReversePolish.setOnAction(event -> ((Observer) l).notifyObservers());
+    type.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+      @Override
+      public void changed(ObservableValue<? extends Toggle> observable, Toggle from, Toggle to) {
+        l.accept(to == infix ? OpType.INFIX : OpType.POSTFIX);
+      }
+    });
   }
 
   /**
-   * Get the expression from user input.
+   * A hook to expose the question to another class.
    * 
    * @return the expression
    */
   public String getExpression() {
-    return FieldE.getText();
+    return fieldE.getText();
 
   }
 
   /**
-   * Used to set the answer to a given expression.
+   * A hook to allow the answer to be displayed.
    * 
    * @param answer the answer to an expression
    */
   public void setAnswer(String answer) {
-    FieldR.setText(answer);
+    fieldR.setText(answer);
   }
 }
+// This code is from the MVC-separated example code
 
 
