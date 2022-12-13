@@ -8,18 +8,24 @@ package calculator;
  *
  */
 public class CalcController {
-  private StandardCalc myModel;
+  private CalcModel myModel;
   private ViewInterface myView;
+  private Boolean isInfix;
 
   private void calculate() throws BadTypeException {
     String userInput = myView.getExpression();
-    myView.setAnswer(String.valueOf(myModel.evaluate(userInput)));
+    myView.setAnswer(String.valueOf(myModel.evaluate(userInput, isInfix)));
   }
 
   private void expressionType(OpType t) {
+    if (t == OpType.INFIX) {
+      isInfix = true;
+    } else {
+      isInfix = false;
+    }
     myView.setAnswer("Changed to " + t);
   }
-  
+
   /**
    * Constructor that adds the observers to the view interface.
    * 
@@ -28,7 +34,7 @@ public class CalcController {
   public CalcController(ViewInterface v) {
     addView(v);
   }
-  
+
   /**
    * Constructor for CalcController object.
    */
