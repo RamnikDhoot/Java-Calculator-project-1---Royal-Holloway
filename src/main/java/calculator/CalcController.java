@@ -1,13 +1,14 @@
 package calculator;
 
+
 /**
- *Takes the expression entered and evaluates it then returns the answer.
+ * Takes the expression entered and evaluates it then returns the answer.
  * 
  * @author zkac269
  *
  */
 public class CalcController {
-  private RevPolish myModel;
+  private StandardCalc myModel;
   private ViewInterface myView;
 
   private void calculate() throws BadTypeException {
@@ -15,12 +16,32 @@ public class CalcController {
     myView.setAnswer(String.valueOf(myModel.evaluate(userInput)));
   }
 
-  // private void expressionType() {}
+  private void expressionType(OpType t) {
+    myView.setAnswer("Changed to " + t);
+  }
+  
+  /**
+   * Constructor that adds the observers to the view interface.
+   * 
+   * @param v the view interface
+   */
+  public CalcController(ViewInterface v) {
+    addView(v);
+  }
+  
+  /**
+   * Constructor for CalcController object.
+   */
+  public CalcController() {}
 
-  CalcController(RevPolish model, ViewInterface view) {
-    myModel = model;
-    myView = view;
-    view.addCalcObserver(() -> {
+  /**
+   * Used to add the observers to the view.
+   * 
+   * @param v the view interface
+   */
+  public void addView(ViewInterface v) {
+    myView = v;
+    v.addCalcObserver(() -> {
       try {
         calculate();
       } catch (BadTypeException e) {
@@ -28,7 +49,7 @@ public class CalcController {
         e.printStackTrace();
       }
     });
-    // view.addTypeObserver(this::expressionType);
+    v.addTypeObserver(this::expressionType);
   }
 
 }
