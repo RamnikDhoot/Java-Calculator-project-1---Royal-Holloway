@@ -36,11 +36,6 @@ public class CalcController {
   }
 
   /**
-   * Constructor for CalcController object.
-   */
-  public CalcController() {}
-
-  /**
    * Used to add the observers to the view.
    * 
    * @param v the view interface
@@ -56,6 +51,20 @@ public class CalcController {
       }
     });
     v.addTypeObserver(this::expressionType);
+  }
+  
+  CalcController(CalcModel model, ViewInterface view) {
+    myModel = model;
+    myView = view;
+    view.addCalcObserver(() -> {
+      try {
+        calculate();
+      } catch (BadTypeException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    });
+    view.addTypeObserver(this::expressionType);
   }
 
 }

@@ -12,10 +12,9 @@ public class RevPolish {
   private NumStack list;
 
   /**
-   * Takes a string expression and calculates it then returns the result. The expression should be
-   * in reverse polish notation.
+   * Takes a string expression and calculates it then returns the result. 
+   * The expression should be in reverse polish notation.
    *
-   * 
    * @param str the expression to be calculated
    * @return the result of the calculation
    * @throws BadTypeException if a part of the string is the wrong type

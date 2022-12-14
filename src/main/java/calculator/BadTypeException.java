@@ -9,6 +9,11 @@ package calculator;
 public class BadTypeException extends Exception {
 
   /**
+   * ID for the exception.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * A constructor for the exception.
    * 
    * @param message the message to be displayed when the exception is thrown

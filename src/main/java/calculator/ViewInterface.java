@@ -37,5 +37,10 @@ public interface ViewInterface {
    * @param answer the answer to an expression
    */
   void setAnswer(String answer);
+  
+  /**
+   * This calls the menu method.
+   */
+  public void menu();
 
 }

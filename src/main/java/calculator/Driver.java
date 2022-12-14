@@ -1,34 +1,32 @@
 package calculator;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 /**
  * This class starts the GUI.
  * 
  * @author zkac269
  *
  */
-public class Driver extends Application {
-  private CalcController controller = new CalcController();
-
+public class Driver {
   /**
    * This is the main method to start the calculator and bring up the GUI.
    * 
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    launch(args);
-  }
+    ViewInterface view = new AsciiView();
 
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("myView.fxml"));
-    Scene scene = new Scene(loader.load(), 509, 261);
-    controller.addView(loader.getController());
-    primaryStage.setScene(scene);
-    primaryStage.show();
+    CalcModel model = new CalcModel();
+    System.out.println("hello");
+    
+    // Decide which view to build.
+    if (System.console() == null) {
+      System.out.println("hello");
+      view = MyView.getInstance();
+    }
+    new CalcController(model, view);
+    // All ready so begin the interface.
+    view.menu();
   } // This code is from the example code
+
+  
 }

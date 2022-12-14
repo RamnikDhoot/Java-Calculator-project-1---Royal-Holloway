@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Printable container class for either a Float, a String or a Symbol.
  * 
- * @author dhoot
+ * @author zkac269
  *
  */
 public class Entry {
@@ -39,7 +39,7 @@ public class Entry {
   /**
    * Constructor for (Symbol) entry and sets the type of the entry.
    * 
-   * @param value (Symbol) value to put into the entry.
+   * @param which (Symbol) value to put into the entry.
    */
   public Entry(Symbol which) {
     other = which;
@@ -106,32 +106,6 @@ public class Entry {
    */
   public Type getType() {
     return type;
-  }
-
-  /**
-   * A method to check if two entry's are the same.
-   *
-   * @return true or false if two objects are the same.
-   */
-  @Override
-  public boolean equals(Object obj) { // auto-generated equals method
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Entry other = (Entry) obj;
-    return Objects.equals(number, other.number) && this.other == other.other
-        && Objects.equals(str, other.str) && type == other.type;
-  }
-
-  /**
-   * A method to return an integer hashCode for an entry.
-   */
-  @Override
-  public int hashCode() { // auto-generated hashCode method
-    return Objects.hash(number, other, str, type);
   }
 
   /**

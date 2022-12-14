@@ -4,11 +4,20 @@ package calculator;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
+/**
+ * This class is for the command line interface of the calculator.
+ * @author zkac269
+ *
+ */
 public class AsciiView implements ViewInterface {
   private String question;
   Observer calc = null;
   Observer reset = null;
 
+  /**
+   *This outputs the menu for the user to read.
+   *It shows all the options the user has.
+   */
   public void menu() {
     Scanner s = new Scanner(System.in);
     boolean finished = false;
@@ -51,25 +60,27 @@ public class AsciiView implements ViewInterface {
     System.out.println("  Q - to exit");
   }
 
+  /**
+   *Returns the expression that is input into the command line.
+   */
   public String getExpression() {
     return question;
   }
 
+  /**
+   *Gets the answer.
+   */
   public void setAnswer(String a) {
-    System.out.println("Answer is just around the corner");
   }
 
   @Override
-  public void addCalcObserver(Runnable f) {
-    // TODO Auto-generated method stub
-    
+  public void addCalcObserver(Runnable f) { 
   }
 
   @Override
   public void addTypeObserver(Consumer<OpType> l) {
     // TODO Auto-generated method stub
-    
-  }
 
-}// Code taken from MVC javafx examlple
+  }
+} // Code taken from MVC javafx example
 

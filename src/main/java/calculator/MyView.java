@@ -1,17 +1,23 @@
 package calculator;
 
+import java.io.IOException;
 import java.util.function.Consumer;
+import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * This class is the JavaFX view that contains the data for the GUI. It is filled by the fxml loader
@@ -20,8 +26,36 @@ import javafx.scene.control.ToggleGroup;
  * @author zkac269
  *
  */
-public class MyView implements ViewInterface {
+public class MyView extends Application implements ViewInterface {
+  /////////////////////////////////////////////////////////////////////////////////
+  // Block for creating an instance variable for others to use.
+  //
+  // Make it a JavaFX singleton. Instance is set by the javafx "initialise" method
+  private volatile static MyView instance = null;
 
+  @FXML
+  void initialize() {
+    instance = this;
+  }
+
+  /**
+   * This method is used so that there is only one instance of MyView at any time.
+   * 
+   * @return instance of this view.
+   */
+  public synchronized static MyView getInstance() {
+    if (instance == null) {
+      new Thread(() -> Application.launch(MyView.class)).start();
+      // Wait until the instance is ready since initialise has executed.
+      while (instance == null) {// empty body
+      }
+    }
+
+    return instance;
+  }
+
+  // End of special block
+  /////////////////////////////////////////////////////////////////////////////////
   /**
    * The expression to be resolved.
    */
@@ -71,6 +105,18 @@ public class MyView implements ViewInterface {
   private ToggleGroup type;
   //// All values above were injected by FXMLLoader
 
+
+
+  @Override
+  public void start(Stage primaryStage) throws IOException {
+    GridPane page = (GridPane) FXMLLoader.load(MyView.class.getResource("View.fxml"));
+    Scene scene = new Scene(page);
+    scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+    primaryStage.setScene(scene);
+    primaryStage.setTitle("MVC/Observer/fxml");
+    primaryStage.show();
+  }
+
   /**
    * This adds an observer for the calculation.
    * 
@@ -117,6 +163,13 @@ public class MyView implements ViewInterface {
    */
   public void setAnswer(String answer) {
     fieldR.setText(answer);
+  }
+
+  /**
+   * Menu to start the GUI.
+   */
+  public void menu() {
+    calculate.setDisable(false);
   }
 }
 // This code is from the MVC-separated example code

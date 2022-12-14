@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>174</y>
+      <w>210</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>valign=bottom
+Controller
+fontsize=28
+fg=magenta
+bg=light_gray
+group=group-1
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>186</y>
+      <w>186</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+bg=blue
+_calculator:CalcController_
+Create view and model.
+Adds itself as an observer to the view
+so that (asynchronous) changes
+can be observed. 
+--
+*Attributes*
+-myModel: CalcModel
+-myView: ViewInterface
+-isInfix: boolean
+--
+*Responsibilities*
++calculate(): void
+Is notified when a 
+calculation is required
+--
++expressionType(): void
+Is notified when a change of 
+expression type is indicated
+&lt;&lt;constructor&gt;&gt;+CalcController(ViewInterface v)
++addView(ViewInterface v): void
++CalcController(CalcModel model, ViewInterface)
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>558</y>
+      <w>174</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>_calculator::Stack_
+bg=pink
+This class represents a 
+Stack of Entry values
+--
+*Attributes*
+-size: int
+-values: ArrayList&lt;Entry&gt;
+--
+*Responsibilities*
+&lt;&lt;constructor&gt;&gt; +Stack()
++push(i: Entry)
+/    Adds a new Entry to the Stack/
++pop(): Entry {exception=EmptyStack}
+/    Returns (and removes) newest Entry/
++top(): Entry {exception=EmptyStack}
+/    Return (but keeps) newset Entry/
++size():int
+/    How many Entry's in the Stack/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>792</y>
+      <w>126</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt; 
+bg=orange
+_calculator::Type_
+A list of the types of 
+value an Entry can represent
+--
+*Attributes*
+-type: String
+--
+&lt;&lt;constructor&gt;&gt; +Type(String s)
++toString(): String
+_NUMBER_
+_SYMBOL_
+_STRING_
+_INVALID_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>750</y>
+      <w>174</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>_calculator::Entry_
+bg=orange
+Values stored in a Stack
+--
+*Attributes*
+-number: float
+-other: Symbol
+-str: String
+-type: Type
+--
+*Responsibilities*
+&lt;&lt;constructor&gt;&gt; +Entry(float value)
+&lt;&lt;constructor&gt;&gt; +Entry(Symbol which)
++toString(): String
++getType(): Type
++getString(): String 
+              {Exception=BadType}
++getSymbol(): Symbol 
+              {exception=BadType}
++getValue(): float
+              {exception=BadType}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>768</y>
+      <w>144</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt; 
+bg=orange
+_calculator::Symbol_
+A list of the non-number tokens 
+possible in an expression
+--
+*Attributes*
+-symbol: String
+--
+&lt;&lt;constructor&gt;&gt; +Symbol(String string)
++toString(): String
+_LEFT BRACKET_
+_RIGHT BRACKET_
+_TIMES_
+_DIVIDE_
+_PLUS_
+_MINUS_
+_INVALID_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>180</y>
+      <w>192</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;model&gt;&gt;
+bg=red
+_calculator: CalcModel_
+Also shows the values of each of
+the Calculator's memories.
+--
+*Attributes*
+-RevPolish: Calc1
+-Standardalc: Calc2
+--
+*Responsibilities*
++evaluate(expr: String, infix:boolean): float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>438</y>
+      <w>162</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+_calculator::NumStack_
+Since reverse Polish evaluation
+only uses a Stack of numeric values
+we provide a facade to hide details
+--
+*Attributes*
+-numStack: newStack
+--
+*Responsibilities*
++push(i: float)
++pop(): float 
+               {exception=EmptyStack}
++isEmpty():boolean
++top(): Entry
++size(): integer
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>432</y>
+      <w>174</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+_calculator::OpStack_
+Since the Shunting algorithm
+only uses a Stack of symbols 
+we provide a facade to hide details
+--
+*Attributes*
+-numStack: newStack
+--
+*Responsibilities*
++push(i: float)
++pop(): float 
+               {exception=EmptyStack}
++isEmpty():boolean
++top(): Entry
++size(): integer
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>312</y>
+      <w>156</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+_calculator::StandardCalc_
+Evaluates infix String Expressions
+--
+*Attributes*
+-values: OpStack
+-rpCalc: RevPolishCalc
+--
+*Responsibilities*
++evaluate(String: what): float
+     {exception=InvalidExpression}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>558</x>
+      <y>312</y>
+      <w>156</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+_calculator::RevPolish_
+Evaluates Reverse Polish
+String Expressions
+--
+*Attributes*
+-list: NumStack
+--
+*Responsibilities*
++evaluate(String: str): float
+     {exception=InvalidExpression}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>276</y>
+      <w>72</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>708</x>
+      <y>276</y>
+      <w>78</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>786</x>
+      <y>408</y>
+      <w>114</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>798</x>
+      <y>570</y>
+      <w>102</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+&lt;&lt;facade&gt;&gt;</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>558</x>
+      <y>570</y>
+      <w>84</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1pos=-50,20
+m1=&lt;&lt;facade&gt;&gt;</panel_attributes>
+    <additional_attributes>40.0;10.0;120.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>720</y>
+      <w>30</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>798</x>
+      <y>828</y>
+      <w>54</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>822</y>
+      <w>48</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>648</y>
+      <w>240</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;view&gt;&gt;
+_calculator::MyView_
+A graphical window that is filled by the fxml loader with 
+1. a text field for an expression
+2. a "calculate" button
+3. two radio buttons: "Reverse Polish/Infix"
+4. a text field for the result
+--
+*Attributes*
+-MyView: instance (private volatile static field so there will only 
+be one instacnce in the program)
+--
++initialize(): void
++getInstance(): MyView
++start(Stage PrimaryStage) throws IOException: void
++addCalcObserver(Runnable f): void 
+    +handle(ActionEvent event): void (within addCalcObserver)
++addTypeObserver(Consumer&lt;OpType&gt; l): void
+    +changed(): void (within addTypeObserver)
++getExpression(): String
++setAnswer(str: String): void
++menu(): void
+	
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>210</y>
+      <w>234</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>370.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>366</y>
+      <w>18</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>156</x>
+      <y>30</y>
+      <w>270</w>
+      <h>498</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;810.0;20.0;10.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>516</x>
+      <y>408</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>174</y>
+      <w>558</w>
+      <h>876</h>
+    </coordinates>
+    <panel_attributes>                                                              
+                                                              
+                                                              
+                                                              Model Assembly
+layer=0
+fontsize=28
+fg=magenta
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>78</x>
+      <y>498</y>
+      <w>360</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>valign=bottom
+View Assembly
+fontsize=28
+fg=magenta
+bg=light_gray
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>204</x>
+      <y>516</y>
+      <w>186</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+_calculator::ViewInterface_
+--
+*Attributes*
+-getExpression: String
+-addCalcObserver: void
+-addTypeObserver: void
+-setAnswer: void
+-menu: void
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>516</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;view&gt;&gt;
+_calculator::AsciiView_
+A menu based View
+--
+-question: String
+-calc: Observer
+-reset: Observer
+--
+Responsibilities
+--
++menu()
++help()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>366</y>
+      <w>60</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+m2=&lt;&lt;Observer&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;470.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>600</y>
+      <w>18</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>966</y>
+      <w>210</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Exception&gt;&gt;
+calculator::BadTypeException
+bg=black
+--
+-serialVersionUID: Long
+--
+Responsibilities
+-- &lt;&lt;constructor&gt;&gt; +BadTypeException(String message)
+layer=1
+fg=WHITE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>714</x>
+      <y>930</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>648</y>
+      <w>90</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+_calculator::Observer_
+bg=green
+--
+Responsibilities
+-- +notifyObservers()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>6</y>
+      <w>150</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Main&gt;&gt;
+_calculator::Driver_
+This class contains the main method 
+to start the GUI.
+bg=red
+--
+Responsibilities
+-- +main()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>516</x>
+      <y>72</y>
+      <w>192</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>72</y>
+      <w>156</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>690</y>
+      <w>78</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>600</y>
+      <w>18</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>768</y>
+      <w>90</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt; 
+bg=orange
+_calculator::OpType_
+A list of the types 
+of notation to use
+--
+_INFIX_
+_POSTFIX_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>792</y>
+      <w>36</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>402</x>
+      <y>0</y>
+      <w>174</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>
+
+
+
+
+Main
+
+layer=0
+fontsize=28
+fg=magenta
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

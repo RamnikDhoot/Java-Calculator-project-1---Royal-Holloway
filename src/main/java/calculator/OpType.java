@@ -14,7 +14,7 @@ public enum OpType {
 INFIX,
 
 /**
-* Reverse Polish like 325+*.
+* Reverse Polish notation e.g. 325+*.
 */
 POSTFIX;
 }
