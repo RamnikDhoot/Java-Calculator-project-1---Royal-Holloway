@@ -28,5 +28,12 @@ class StandardCalcTest {
     char a = 0;
     assertEquals(calc.letterOrDigit(a), true);
   }
+  
+  @Test
+  void testgetPrecedence() throws BadTypeException {
+    char a = 0;
+    assertEquals(calc.getPrecedence(a), 1);
+  }
+  
 
 }
