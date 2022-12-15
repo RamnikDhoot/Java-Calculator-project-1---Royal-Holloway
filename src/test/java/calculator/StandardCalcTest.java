@@ -30,10 +30,14 @@ class StandardCalcTest {
   }
   
   @Test
-  void testgetPrecedence() throws BadTypeException {
+  void testGetPrecedence() throws BadTypeException {
     char a = 0;
     assertEquals(calc.getPrecedence(a), 1);
   }
   
+  void testGoesLeft() throws BadTypeException {
+    char a = 0;
+    assertEquals(calc.goesLeft(a), true);
+  }
 
 }

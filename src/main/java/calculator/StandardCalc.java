@@ -22,4 +22,8 @@ public class StandardCalc {
     return 1;
   }
 
+  public boolean goesLeft(char ch) {
+    return true;
+  }
+
 }
