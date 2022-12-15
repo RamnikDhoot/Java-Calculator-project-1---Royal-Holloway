@@ -18,7 +18,7 @@ public interface ViewInterface {
   void addCalcObserver(Runnable f);
   
   /**
-   * Adds an observer for the type of calculation (Infix/Reverse polish).
+   * Adds an observer for the type of calculation (Infix/Reverse polish) to track user interaction.
    * 
    * @param l the type of the calculation
    */
@@ -32,14 +32,14 @@ public interface ViewInterface {
   String getExpression();
 
   /**
-   * Used to set the answer to a given expression.
+   * Used to output the answer to a given expression to the user.
    * 
    * @param answer the answer to an expression
    */
   void setAnswer(String answer);
   
   /**
-   * This calls the menu method.
+   * This calls the menu method to display options to the user.
    */
   public void menu();
 

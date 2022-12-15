@@ -24,9 +24,8 @@ public class Driver {
       view = MyView.getInstance();
     }
     new CalcController(model, view);
-    // All ready so begin the interface.
     view.menu();
-  } // This code is from the example code
+  } // This code is from the example code MVC separated
 
   
 }

@@ -27,7 +27,12 @@ import javafx.stage.Stage;
  *
  */
 public class MyView extends Application implements ViewInterface {
-  /////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////// taken from MVC
+  ///////////////////////////////////////////////////////////////////////////////// separated
+  ///////////////////////////////////////////////////////////////////////////////// example to try
+  ///////////////////////////////////////////////////////////////////////////////// and ix my GUI
+  ///////////////////////////////////////////////////////////////////////////////// but still didn't
+  ///////////////////////////////////////////////////////////////////////////////// work
   // Block for creating an instance variable for others to use.
   //
   // Make it a JavaFX singleton. Instance is set by the javafx "initialise" method
@@ -109,11 +114,11 @@ public class MyView extends Application implements ViewInterface {
 
   @Override
   public void start(Stage primaryStage) throws IOException {
-    GridPane page = (GridPane) FXMLLoader.load(MyView.class.getResource("View.fxml"));
+    GridPane page = (GridPane) FXMLLoader.load(MyView.class.getResource("myView.fxml"));
     Scene scene = new Scene(page);
-    scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("myView.css").toExternalForm());
     primaryStage.setScene(scene);
-    primaryStage.setTitle("MVC/Observer/fxml");
+    primaryStage.setTitle("fxml");
     primaryStage.show();
   }
 

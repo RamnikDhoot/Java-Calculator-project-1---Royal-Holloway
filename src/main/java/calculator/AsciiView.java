@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 /**
  * This class is for the command line interface of the calculator.
+ * It will output options to the user and explain how to use the calculator on the command line.
  * @author zkac269
  *
  */
