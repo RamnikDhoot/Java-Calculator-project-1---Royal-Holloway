@@ -13,5 +13,9 @@ public class StandardCalc {
   public Float calculate(String str) {
     return (float) 0;
   }
+  
+  public boolean letterOrDigit(char c) {
+  return true;
+  }
 
 }

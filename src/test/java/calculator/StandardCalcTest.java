@@ -22,5 +22,11 @@ class StandardCalcTest {
   void testCalc() throws BadTypeException {
     assertEquals(calc.calculate("test"), 0);
   }
+  
+  @Test
+  void testLetterorDigit() throws BadTypeException {
+    char a = 0;
+    assertEquals(calc.letterOrDigit(a), true);
+  }
 
 }
